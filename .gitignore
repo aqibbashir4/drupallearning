@@ -1,0 +1,4 @@
+vendor/
+.ddev/
+sites/default/files/
+sites/default/settings.php
