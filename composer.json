@@ -10,9 +10,8 @@
     },
     "require": {
         "composer/installers": "^2.3",
-        "drupal/core": "self.version",
-        "drupal/core-project-message": "self.version",
-        "drupal/core-vendor-hardening": "self.version",
+        "drupal/core": "11.x-dev",
+        "drupal/core-project-message": "^10.3",
         "drush/drush": "^13.3"
     },
     "require-dev": {
@@ -21,6 +20,7 @@
         "colinodell/psr-testlogger": "^1.2",
         "composer/composer": "^2.8.1",
         "drupal/coder": "^8.3.10",
+        "drupal/admin_toolbar": "^3.5",
         "justinrainbow/json-schema": "^5.2",
         "lullabot/mink-selenium2-driver": "^1.7.3",
         "lullabot/php-webdriver": "^2.0.5",
@@ -51,6 +51,9 @@
         "symfony/polyfill-php82": "*",
         "symfony/polyfill-php83": "*"
     },
+    "conflict": {
+        "drupal/drupal": "*"
+    },
     "minimum-stability": "dev",
     "prefer-stable": true,
     "config": {
@@ -78,14 +81,30 @@
             "https://www.drupal.org/node/2718229"
         ],
         "installer-paths": {
-            "core": ["type:drupal-core"],
-            "libraries/{$name}": ["type:drupal-library"],
-            "modules/contrib/{$name}": ["type:drupal-module"],
-            "profiles/contrib/{$name}": ["type:drupal-profile"],
-            "themes/contrib/{$name}": ["type:drupal-theme"],
-            "drush/Commands/contrib/{$name}": ["type:drupal-drush"],
-            "modules/custom/{$name}": ["type:drupal-custom-module"],
-            "themes/custom/{$name}": ["type:drupal-custom-theme"]
+            "core": [
+                "type:drupal-core"
+            ],
+            "libraries/{$name}": [
+                "type:drupal-library"
+            ],
+            "modules/contrib/{$name}": [
+                "type:drupal-module"
+            ],
+            "profiles/contrib/{$name}": [
+                "type:drupal-profile"
+            ],
+            "themes/contrib/{$name}": [
+                "type:drupal-theme"
+            ],
+            "drush/Commands/contrib/{$name}": [
+                "type:drupal-drush"
+            ],
+            "modules/custom/{$name}": [
+                "type:drupal-custom-module"
+            ],
+            "themes/custom/{$name}": [
+                "type:drupal-custom-theme"
+            ]
         },
         "drupal-core-project-message": {
             "post-install-cmd-message": [
@@ -128,20 +147,24 @@
     },
     "repositories": [
         {
-            "type": "path",
-            "url": "core"
-        },
-        {
-            "type": "path",
-            "url": "composer/Plugin/ProjectMessage"
-        },
-        {
-            "type": "path",
-            "url": "composer/Plugin/VendorHardening"
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
         },
         {
             "type": "composer",
-            "url": "https://packages.drupal.org/8"
+            "url": "https://asset-packagist.org"
+        },
+        {
+            "type": "vcs",
+            "url": "https://x-token-auth:rhDsN3Cc51ShoLbmafdg@bitbucket.org/bitbasegroup/bbg_base.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://x-token-auth:heB7Q20PTCYv0XTbcrzL@bitbucket.org/bitbasegroup/adam_modules.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://x-token-auth:yjlJ7QdfhC9gtJG7lebu@bitbucket.org/bitbasegroup/eve_theme.git"
         }
     ]
 }
